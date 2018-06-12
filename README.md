@@ -1,15 +1,7 @@
 # Table of Contents
 1. [Challenge summary](README.md#challenge-summary)
 2. [Overview of the Solution](README.md#overview-of-the-solution)
-5. [Implementation details](README.md#implementation-details)
-6. [Input files](README.md#input-files)
-7. [Output file](README.md#output-file)
-8. [Example](README.md#example)
-9. [Writing clean, scalable and well-tested code](README.md#writing-clean-scalable-and-well-tested-code)
-10. [Repo directory structure](README.md#repo-directory-structure)
-11. [Testing your directory structure and output format](README.md#testing-your-directory-structure-and-output-format)
-11. [Instructions to submit your solution](README.md#instructions-to-submit-your-solution)
-13. [FAQ](README.md#faq)
+
 
 # Challenge summary
 
@@ -26,12 +18,15 @@ You can assume there is another process that takes what is written to the output
 
 ## Design and Implementation
 
+### LRUQueue:
 We use a custom implementation of LRUQueue that uses a doubly linked list of Sessions.
 A Session object represents an active ongoing session state.
 
 The LRUQueue is the most efficient as it takes O(1) in moving the recently updated items to the front and
-the expired sessions are checked from the back of the queue, until there are no more expired sessions, which is constant time in the number of
+the expired sessions are checked from the back of the queue, until there are no more expired sessions, which is constant
+time in the number of expired sessions
 
+### LogProcessor:
 The main LogProcessor class,  processes the log data as a stream and handles the LRUQueue and the set of active sessions.
 
 Also we batch updates for a single second. To efficiently process multiple updates occuring within a single second,
